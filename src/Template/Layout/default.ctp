@@ -31,23 +31,23 @@
 <!--    <link href="assets/css/themify-icons.css" rel="stylesheet">-->
     <?//= $this->Html->meta('icon') ?>
 
-    <?= $this->Html->css('/yummy-demo/css/bootstrap.min.css') ?>
+    <?= $this->Html->css('/yummy_demo/css/bootstrap.min.css') ?>
 
-    <?= $this->Html->css('/yummy-demo/css/animate.min.css') ?>
+    <?= $this->Html->css('/yummy_demo/css/animate.min.css') ?>
 
-    <?= $this->Html->css('/yummy-demo/css/paper-dashboard.css') ?>
+    <?= $this->Html->css('/yummy_demo/css/paper-dashboard.css') ?>
 
-    <?= $this->Html->css('/yummy-demo/css/themify-icons.css') ?>
+    <?= $this->Html->css('/yummy_demo/css/themify-icons.css') ?>
 
     <?= $this->fetch('meta') ?>
 
     <?php
-        $this->Html->script('/yummy-demo/js/jquery-1.10.2.js', array('inline' => false, 'block' => 'script_top'));
-        $this->Html->script('/yummy-demo/js/bootstrap.min.js', array('inline' => false, 'block' => 'script_bottom'));
-        $this->Html->script('/yummy-demo/js/bootstrap-checkbox-radio.js', array('inline' => false, 'block' => 'script_bottom'));
-        $this->Html->script('/yummy-demo/js/chartist.min.js', array('inline' => false, 'block' => 'script_bottom'));
-        $this->Html->script('/yummy-demo/js/bootstrap-notify.js', array('inline' => false, 'block' => 'script_bottom'));
-        $this->Html->script('/yummy-demo/js/paper-dashboard.js', array('inline' => false, 'block' => 'script_bottom'));
+        $this->Html->script('/yummy_demo/js/jquery-1.10.2.js', array('inline' => false, 'block' => 'script_top'));
+        $this->Html->script('/yummy_demo/js/bootstrap.min.js', array('inline' => false, 'block' => 'script_bottom'));
+        $this->Html->script('/yummy_demo/js/bootstrap-checkbox-radio.js', array('inline' => false, 'block' => 'script_bottom'));
+        $this->Html->script('/yummy_demo/js/chartist.min.js', array('inline' => false, 'block' => 'script_bottom'));
+        $this->Html->script('/yummy_demo/js/bootstrap-notify.js', array('inline' => false, 'block' => 'script_bottom'));
+        $this->Html->script('/yummy_demo/js/paper-dashboard.js', array('inline' => false, 'block' => 'script_bottom'));
         //$this->Html->script('https://maps.googleapis.com/maps/api/js', array('inline' => false, 'block' => 'script_bottom'));
         echo $this->fetch('script_top');
     ?>
