@@ -1,1 +1,1 @@
-# YummyDemo plugin for CakePHP 
+# YummyDemo plugin for CakePHP
