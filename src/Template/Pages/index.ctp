@@ -14,9 +14,6 @@ $this->set('description', 'Delightfully tasty tools for your CakePHP project');
                 For help please checkout the <a href="https://github.com/cnizzardini/cakephp-yummy">cakephp-yummy</a> github project. You'll find the README, wiki, and can report any 
                 issues you find.
             </p>
-            <p>
-                These demo pages will not display in your application when debug is set to false, they will instead throw a 403 forbidden exception.
-            </p>
             
             <h2>Yummy Bake Templates</h2>
             <p>
