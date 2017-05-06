@@ -1,5 +1,5 @@
 {
-    "name": "cnizzardini/YummyDemo",
+    "name": "cnizzardini/cakephp-yummy-demo",
     "description": "YummyDemo plugin for CakePHP",
     "type": "cakephp-plugin",
     "require": {
