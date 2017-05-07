@@ -96,15 +96,14 @@ class TeamsController extends AppController
      */
     public function edit($id = null)
     {
-        $this->Flash->success(__('The team has been saved.'));
-        return $this->redirect(['action' => 'index']);
-        
         $team = $this->Teams->get($id, [
             'contain' => []
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $this->Flash->success(__('The team has been saved.'));
+            return $this->redirect(['action' => 'index']);
         }
+        
         $divisions = $this->Teams->Divisions->find('list', ['limit' => 200]);
         $this->set(compact('team', 'divisions'));
         $this->set('_serialize', ['team']);
