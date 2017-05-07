@@ -73,6 +73,7 @@ class TeamsController extends AppController
         $team = $this->Teams->newEntity();
         if ($this->request->is('post')) {
             $this->Flash->success(__('The team has been saved.'));
+            return $this->redirect(['action' => 'index']);
         }
         
         $divisionResults = $this->Teams->Divisions->find()->contain(['Conferences']);
@@ -95,6 +96,9 @@ class TeamsController extends AppController
      */
     public function edit($id = null)
     {
+        $this->Flash->success(__('The team has been saved.'));
+        return $this->redirect(['action' => 'index']);
+        
         $team = $this->Teams->get($id, [
             'contain' => []
         ]);
@@ -115,6 +119,8 @@ class TeamsController extends AppController
      */
     public function delete($id = null)
     {
+        return $this->redirect(['action' => 'index']);
+        
         $this->request->allowMethod(['post', 'delete']);
         $team = $this->Teams->get($id);
         if ($this->Teams->delete($team)) {

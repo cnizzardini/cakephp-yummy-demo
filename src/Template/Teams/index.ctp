@@ -46,7 +46,8 @@ $this->end();
                             <td><?= $team->division->name ?></td>
                             <td><?= h($team->abbreviation) ?></td>
                             <td class="actions">
-                                    <?= $this->Html->link(__('View'), ['action' => 'view', $team->id], ['class' => 'btn btn-info btn-block btn-fill']) ?>
+                                <?= $this->Html->link(__('View'), ['action' => 'view', $team->id], ['class' => 'btn btn-info btn-fill']) ?>
+                                <?= $this->Html->link(__('Edit'), ['action' => 'edit', $team->id], ['class' => 'btn btn-fill']) ?>
                             </td>
                         </tr>
                         <?php endforeach; ?>
