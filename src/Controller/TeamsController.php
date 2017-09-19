@@ -2,7 +2,6 @@
 namespace YummyDemo\Controller;
 
 use YummyDemo\Controller\AppController;
-use Cake\Utility\Security;
 
 /**
  * Teams Controller
@@ -11,7 +10,11 @@ use Cake\Utility\Security;
  */
 class TeamsController extends AppController
 {
-
+    public function initialize()
+    {
+        parent::initialize();
+        $this->loadModel('YummyDemo.Teams');
+    }
     /**
      * Index method
      *
@@ -19,28 +22,32 @@ class TeamsController extends AppController
      */
     public function index()
     {
-        $this->loadComponent('Yummy.YummySearch',[
-            'model' => 'Teams',
-            'allow' => [
-                'Conferences' => ['name'],
-                'Divisions' => ['name'],
-            ],
-            'deny' => [
-                'Teams' => ['id','division_id']
+        $query = $this->Teams->find()->contain([
+            'Divisions' => [
+                'Conferences'
             ]
         ]);
         
-        $this->paginate = [
-            'contain' => [
-                'Divisions' => [
-                    'Conferences'
-                ]
-            ]
-        ];
+        $this->loadComponent('Yummy.YummySearch',[
+            'query' => $query,
+            'allow' => [
+                'Conferences' => [
+                    '_columns' => [
+                        'name' => 'Conference'
+                    ],
+                    '_options' => ['AFC','NFC'] 
+                ],
+                'Divisions' => ['name' => 'Division'],
+            ],
+            'deny' => [
+                'Teams' => ['id','division_id']
+            ],
+            'selectGroups' => false
+        ]);
         
-        $this->YummySearch->search();
+        $q = $this->YummySearch->search($query);
         
-        $teams = $this->paginate($this->Teams);
+        $teams = $this->paginate($q);
 
         $this->set(compact('teams'));
         $this->set('_serialize', ['teams']);
