@@ -33,9 +33,12 @@ class TeamsController extends AppController
             'allow' => [
                 'Conferences' => [
                     '_columns' => [
-                        'name' => 'Conference'
+                        'name' => [
+                            '_niceName' => 'Conference',
+                            '_options' => ['AFC','NFC'] 
+                        ]
                     ],
-                    '_options' => ['AFC','NFC'] 
+                    
                 ],
                 'Divisions' => ['name' => 'Division'],
             ],
