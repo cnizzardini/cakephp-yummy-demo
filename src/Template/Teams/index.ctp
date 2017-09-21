@@ -69,43 +69,45 @@ $this->end();
 </script>
 
 <script>
-document.addEventListener('yummySearchFieldChange', function(e){
-    $(e.detail.input).show().attr('disabled',false);
-    $(e.detail.input).parent().find('select').remove();
-    
-    switch(e.detail.dataType){
-        /**
-         * List: custom dropdown
-         */
-        case 'list':
-            $(e.detail.input).hide().attr('disabled',true);
-            
-            var dropdown = '<select name="YummySearch[search][]" class="form-control border-input yummy-search">';
-            dropdown+= '<option value=""></option>';
-            for (var i=0; i<e.detail.items.length; i++) {
-                if (e.detail.prevValue === e.detail.items[ i ]){
-                    dropdown+= '<option value="' + e.detail.items[ i ] + '" selected="selected">' + e.detail.items[ i ] + '</option>';
-                } else {
-                    dropdown+= '<option value="' + e.detail.items[ i ] + '">' + e.detail.items[ i ] + '</option>';
-                }
-            }
-            dropdown+= '</select>';
-            $(e.detail.input).parent().append(dropdown);
-            
-            if (e.detail.prevOperator !== null) {
-                $(e.detail.operator).val(e.detail.prevOperator);
-            } else {
-                $(e.detail.operator).val('eq');
-            }
-            
-            break;
-        default:
-            $(e.detail.operator).find('option').attr('disabled',false);
-    }
-}, false);
+$(function(){
+    document.addEventListener('yummySearchFieldChange', function(e){
+        $(e.detail.input).show().attr('disabled',false);
+        $(e.detail.input).parent().find('select').remove();
 
-/**
- * Initiate event dispatchers for elements created from previous search
- */
-YummySearch.load();
+        switch(e.detail.dataType){
+            /**
+             * List: custom dropdown
+             */
+            case 'list':
+                $(e.detail.input).hide().attr('disabled',true);
+
+                var dropdown = '<select name="YummySearch[search][]" class="form-control border-input yummy-search">';
+                dropdown+= '<option value=""></option>';
+                for (var i=0; i<e.detail.items.length; i++) {
+                    if (e.detail.prevValue === e.detail.items[ i ]){
+                        dropdown+= '<option value="' + e.detail.items[ i ] + '" selected="selected">' + e.detail.items[ i ] + '</option>';
+                    } else {
+                        dropdown+= '<option value="' + e.detail.items[ i ] + '">' + e.detail.items[ i ] + '</option>';
+                    }
+                }
+                dropdown+= '</select>';
+                $(e.detail.input).parent().append(dropdown);
+
+                if (e.detail.prevOperator !== null) {
+                    $(e.detail.operator).val(e.detail.prevOperator);
+                } else {
+                    $(e.detail.operator).val('eq');
+                }
+
+                break;
+            default:
+                $(e.detail.operator).find('option').attr('disabled',false);
+        }
+    }, false);
+
+    /**
+     * Initiate event dispatchers for elements created from previous search
+     */
+    YummySearch.load();
+})
 </script>
